@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       span.style.opacity = '0';
 
       setTimeout(() => {
-        span.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+        span.style.transition = 'transform 1s cubic-bezier(0.25, 1.5, 0.5, 1), opacity 1s ease-out';
         span.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
         span.style.opacity = '1';
       }, 50 + delay);
