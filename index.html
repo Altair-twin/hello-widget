@@ -4,26 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hello Widget</title>
-  <!-- ✅ CSSの正しいパス -->
   <link rel="stylesheet" href="/hello-widget/css/style.css" />
 </head>
 <body>
   <div class="counter-container">
     <h2>Tap That Hello!</h2>
-    <div id="count" class="count"></div>
+    <div id="count" class="count">0</div>
     <button id="helloBtn">Tap👋</button>
     <div id="message" class="message">Let’s build Hello together!</div>
     <div id="completeCount">Hello taps: 0</div>
   </div>
 
-  <!-- ✅ JSの正しいパス -->
   <script src="/hello-widget/js/script.js" defer></script>
 </body>
-  <script>
-  console.log('ページ読み込み完了');
-  document.getElementById('helloBtn').addEventListener('click', () => {
-    console.log('ボタンが押されました');
-  });
-</script>
-
 </html>
