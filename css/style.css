@@ -1,7 +1,7 @@
 .counter-container {
-  width: 320px;        /* 適宜調整してください */
-  margin: 40px auto;   /* 上下40pxの余白、左右は自動で中央寄せ */
-  text-align: center;  /* 内部テキスト・ボタン中央揃え */
+  width: 320px;
+  margin: 40px auto;
+  text-align: center;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -30,11 +30,9 @@
   font-weight: bold;
   display: inline-block;
   user-select: none;
-  /* transformの動きを滑らかに */
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-/* bounceアニメーションはJSでの動きを補助 */
 .bounce {
   animation: bounceAnim 0.5s ease;
 }
