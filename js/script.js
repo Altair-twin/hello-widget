@@ -53,4 +53,3 @@ document.addEventListener('DOMContentLoaded', () => {
     messageEl.textContent = `Let’s build Hello together!`;
   });
 });
-
