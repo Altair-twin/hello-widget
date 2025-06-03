@@ -7,9 +7,29 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentLength = 0;
   let completeCount = 0;
 
-  countEl.textContent = '';
+  // ページ読み込み時に現在のカウントを取得して表示
+  fetch('https://api.countapi.xyz/get/hello-widget/tap')
+    .then(res => res.json())
+    .then(data => {
+      countEl.textContent = data.value;
+    })
+    .catch(() => {
+      countEl.textContent = '0';
+    });
 
   btn.addEventListener('click', () => {
+    // サーバー上のカウントを1増やすAPIへアクセス
+    fetch('https://api.countapi.xyz/hit/hello-widget/tap')
+      .then(res => res.json())
+      .then(data => {
+        // 最新のカウント数を表示
+        countEl.textContent = data.value;
+      })
+      .catch(() => {
+        countEl.textContent = 'エラーが発生しました';
+      });
+
+    // 以下は元のアニメーション部分
     currentLength++;
     if (currentLength > fullText.length) {
       currentLength = 1;
