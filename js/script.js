@@ -7,29 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentLength = 0;
   let completeCount = 0;
 
-  // ページ読み込み時に現在のカウントを取得して表示
+  countEl.textContent = '0';
+
+  // ページ読み込み時にAPIから現在カウント取得
   fetch('https://api.countapi.xyz/get/hello-widget/tap')
     .then(res => res.json())
     .then(data => {
       countEl.textContent = data.value;
+      completeCount = data.value;
+      completeCountEl.textContent = `Hello taps: ${completeCount}`;
     })
     .catch(() => {
-      countEl.textContent = '0';
+      countEl.textContent = 'エラー';
+      completeCountEl.textContent = `Hello taps: エラー`;
     });
 
   btn.addEventListener('click', () => {
-    // サーバー上のカウントを1増やすAPIへアクセス
-    fetch('https://api.countapi.xyz/hit/hello-widget/tap')
-      .then(res => res.json())
-      .then(data => {
-        // 最新のカウント数を表示
-        countEl.textContent = data.value;
-      })
-      .catch(() => {
-        countEl.textContent = 'エラーが発生しました';
-      });
-
-    // 以下は元のアニメーション部分
     currentLength++;
     if (currentLength > fullText.length) {
       currentLength = 1;
@@ -47,10 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     spans.forEach(span => {
       const angle = Math.random() * 2 * Math.PI;
       const distance = 50 + Math.random() * 100;
-
       const x = Math.cos(angle) * distance;
       const y = Math.sin(angle) * distance;
-
       const rotate = (Math.random() - 0.5) * 1440;
 
       span.style.transition = 'none';
@@ -64,11 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 50);
     });
 
-    if (currentLength === fullText.length) {
-      completeCount++;
-    }
+    // countapiでカウントをインクリメントして最新値を取得
+    fetch('https://api.countapi.xyz/hit/hello-widget/tap')
+      .then(res => res.json())
+      .then(data => {
+        completeCount = data.value;
+        completeCountEl.textContent = `Hello taps: ${completeCount}`;
+      })
+      .catch(() => {
+        completeCountEl.textContent = `Hello taps: エラー`;
+      });
 
-    completeCountEl.textContent = `Hello taps: ${completeCount}`;
     messageEl.textContent = `Let’s build Hello together!`;
   });
 });
