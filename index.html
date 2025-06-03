@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hello Widget</title>
-  <!-- ✅ CSSの正しいパス -->
   <link rel="stylesheet" href="/hello-widget/css/style.css" />
 </head>
 <body>
@@ -16,14 +15,6 @@
     <div id="completeCount">Hello taps: 0</div>
   </div>
 
-  <!-- ✅ JSの正しいパス -->
   <script src="/hello-widget/js/script.js" defer></script>
 </body>
-  <script>
-  console.log('ページ読み込み完了');
-  document.getElementById('helloBtn').addEventListener('click', () => {
-    console.log('ボタンが押されました');
-  });
-</script>
-
 </html>
