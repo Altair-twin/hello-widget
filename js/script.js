@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const messageEl = document.getElementById('message');
   const completeCountEl = document.getElementById('completeCount');
   const btn = document.getElementById('helloBtn');
-Add commentMore actions
   const fullText = 'Hello';
   let currentLength = 0;
   let completeCount = 0;
