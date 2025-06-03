@@ -10,11 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
   countEl.textContent = '';
 
   btn.addEventListener('click', () => {
+    // ✅ 1タップごとにカウント加算（Hello完成と無関係）
+    completeCount++;
+    completeCountEl.textContent = `Hello taps: ${completeCount}`;
+    messageEl.textContent = `Let’s build Hello together!`;
+
+    // ✅ Hello表示は1文字ずつ進む
     currentLength++;
     if (currentLength > fullText.length) {
       currentLength = 1;
     }
 
+    // 文字を表示
     countEl.innerHTML = '';
     for (let i = 0; i < currentLength; i++) {
       const span = document.createElement('span');
@@ -23,14 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
       countEl.appendChild(span);
     }
 
+    // アニメーション処理
     const spans = countEl.querySelectorAll('span');
     spans.forEach(span => {
       const angle = Math.random() * 2 * Math.PI;
       const distance = 50 + Math.random() * 100;
-
       const x = Math.cos(angle) * distance;
       const y = Math.sin(angle) * distance;
-
       const rotate = (Math.random() - 0.5) * 1440;
 
       span.style.transition = 'none';
@@ -43,12 +49,5 @@ document.addEventListener('DOMContentLoaded', () => {
         span.style.opacity = '1';
       }, 50);
     });
-
-    if (currentLength === fullText.length) {
-      completeCount++;
-    }
-
-    completeCountEl.textContent = `Hello taps: ${completeCount}`;
-    messageEl.textContent = `Let’s build Hello together!`;
   });
 });
