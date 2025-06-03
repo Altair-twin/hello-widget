@@ -1,5 +1,6 @@
 .counter-container {
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   margin: 40px auto;
   text-align: center;
   padding: 20px;
@@ -7,13 +8,13 @@
 }
 
 .count {
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, 48px);
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .message {
-  font-size: 16px;
+  font-size: clamp(12px, 4vw, 16px);
   color: #4a6ee0;
   font-weight: 600;
   margin-top: 12px;
@@ -26,7 +27,7 @@
 }
 
 .count span {
-  font-size: 48px;
+  font-size: clamp(24px, 6vw, 48px);
   font-weight: bold;
   display: inline-block;
   user-select: none;
