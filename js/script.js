@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const rotate = (Math.random() - 0.5) * 1440;
 
       span.style.transition = 'none';
-      span.style.transform = translate(${x}px, ${y}px) rotate(${rotate}deg) scale(1.5);
+      span.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg) scale(1.5)`;
       span.style.opacity = '0';
 
       setTimeout(() => {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       completeCount++;
     }
 
-    completeCountEl.textContent = Hello taps: ${completeCount};
-    messageEl.textContent = Let’s build Hello together!;
+    completeCountEl.textContent = `Hello taps: ${completeCount}`;
+    messageEl.textContent = `Let’s build Hello together!`;
   });
 });
