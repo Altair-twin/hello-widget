@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentLength = 0;
   let completeCount = 0;
 
-  // 最初は空文字
   countEl.textContent = '';
 
   btn.addEventListener('click', () => {
@@ -32,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const x = Math.cos(angle) * distance;
       const y = Math.sin(angle) * distance;
+
       const rotate = (Math.random() - 0.5) * 1440;
 
       span.style.transition = 'none';
