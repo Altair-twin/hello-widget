@@ -10,18 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   countEl.textContent = '';
 
   btn.addEventListener('click', () => {
-    // ✅ 1タップごとにカウント加算（Hello完成と無関係）
     completeCount++;
     completeCountEl.textContent = `Hello taps: ${completeCount}`;
     messageEl.textContent = `Let’s build Hello together!`;
 
-    // ✅ Hello表示は1文字ずつ進む
     currentLength++;
     if (currentLength > fullText.length) {
       currentLength = 1;
     }
 
-    // 文字を表示
     countEl.innerHTML = '';
     for (let i = 0; i < currentLength; i++) {
       const span = document.createElement('span');
@@ -30,24 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
       countEl.appendChild(span);
     }
 
-    // アニメーション処理
     const spans = countEl.querySelectorAll('span');
     spans.forEach(span => {
       const angle = Math.random() * 2 * Math.PI;
-      const distance = 50 + Math.random() * 100;
+      const distance = 60 + Math.random() * 120;
       const x = Math.cos(angle) * distance;
       const y = Math.sin(angle) * distance;
-      const rotate = (Math.random() - 0.5) * 1440;
+      const rotate = (Math.random() - 0.5) * 1800;
+      const scale = 1.4 + Math.random() * 0.4;
+      const delay = Math.random() * 100;
 
       span.style.transition = 'none';
-      span.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg) scale(1.5)`;
+      span.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg) scale(${scale})`;
       span.style.opacity = '0';
 
       setTimeout(() => {
-        span.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
-        span.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+        span.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+        span.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
         span.style.opacity = '1';
-      }, 50);
+      }, 50 + delay);
     });
   });
 });
